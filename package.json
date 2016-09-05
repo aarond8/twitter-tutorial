@@ -1,0 +1,16 @@
+{
+  "name": "twitter-tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "D8ii",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.0.1",
+    "twitter": "^1.4.0",
+    "underscore": "^1.8.3"
+  }
+}
