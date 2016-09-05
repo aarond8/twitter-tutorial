@@ -54,11 +54,11 @@ var parseTweet = function(tweet, tag){
   //console.log(tweet.text);
   var found = false;
   _.keys(currentids).forEach(function(keyname){
-    var firstmention = tweet.text.toString().toLowerCase().indexOf(keyname.toLowerCase());
+    var firstmention = tweet.text.toString().toLowerCase().indexOf(currentids[keyname].name.toLowerCase());
     var aliasmention = tweet.text.toString().toLowerCase().indexOf(currentids[keyname].alias.toString().toLowerCase());
     if(firstmention>=0){
       if(TEST){
-        console.log('== NAME MATCH: '+ keyname);
+        console.log('== NAME MATCH: '+ currentids[keyname].name);
         console.log(tweet.text);
         console.log('=============');
       }
@@ -83,8 +83,9 @@ var search = function(query, callback){
   //Set geocode data to geometric centre of UK and an encompassing radius
   var geo = '53.000,-1.500,250mi';
   var startdatestr = startdate.getFullYear()+'-'+(startdate.getMonth()+1)+'-'+startdate.getDate();
-
-  client.get('search/tweets', {q: query+' -#news -#betting since:'+startdatestr + ' exclude:retweets exclude:news exclude:links', geocode: geo ,count:99, result_type:'recent'}, function(error, tweets, response) {
+  //var searchoptions = ' exclude:retweets exclude:news exclude:links';
+  var searchoptions = '';
+  client.get('search/tweets', {q: query+' -#betting since:'+startdatestr + searchoptions, geocode: geo ,count:99, result_type:'recent'}, function(error, tweets, response) {
     //console.log(tweets);
     //var twresult = JSON.parse(tweets);
     //console.log('RESULTS:'+tweets.search_metadata.count);

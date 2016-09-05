@@ -1,9 +1,33 @@
 'use strict';
 
 var _ = require('underscore'),
-    footballAliases = {},
     fameids = {},
-    footballids = {},
+    footballids = {
+      1:{
+        "id":"joe-hart",
+        "name":"Joe Hart",
+        "alias":"Hart",
+        "team":"Man City"
+      },
+      2:{
+          "id":"yaya-toure",
+          "name":"Yaya Toure",
+          "alias":"Yaya",
+          "team":"Man City"
+      },
+      3:{
+          "id":"adam-lallana",
+          "name":"Adam Lallana",
+          "alias":"Lallana",
+          "team":"Liverpool"
+      },
+      4:{
+          "id":"wayne-rooney",
+          "name":"Wayne Rooney",
+          "alias":"Rooney",
+          "team":"Man Utd"
+      }
+    },
     current;
 
 exports = module.exports = function(callback) {
